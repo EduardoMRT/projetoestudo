@@ -4,14 +4,14 @@ import br.com.eduardo.mercadinho.domain.Cliente;
 
 public class VerificaCliente {
 	
-	public String verifica(Cliente cliente) {
+	public boolean verifica(Cliente cliente) {
 		int idade = cliente.getIdade();
 			if(idade < 18) {
-				return "O cliente "+cliente.getNome()+" não pode ser criado, por ser menor de idade";
-
+				System.out.println("O cliente "+cliente.getNome()+" não pode ser criado, por ser menor de idade");
+				return false;
 			}else {
-				return "Cliente Maior de Idade? [OK]";
-			}
-			
+				System.out.println("Cliente criado com sucesso!");
+				return true;
+			}		
 	}
 }
