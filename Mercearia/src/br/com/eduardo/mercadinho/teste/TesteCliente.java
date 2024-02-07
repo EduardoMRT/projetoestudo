@@ -7,6 +7,4 @@ public class TesteCliente {
 		Cliente joao = new Cliente("Teste", 18, "Endereço Teste", "123456");
 		
 		VerificaCliente verificaCliente = new VerificaCliente();
-		
-	    String verificado = verificaCliente.verifica(joao);
 }
