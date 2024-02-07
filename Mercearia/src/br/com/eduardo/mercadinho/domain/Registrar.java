@@ -1,23 +1,10 @@
-package br.com.eduardo.mercadinho.ini;
+package br.com.eduardo.mercadinho.domain;
 
 import java.util.Scanner;
 
-import br.com.eduardo.mercadinho.domain.Cliente;
 import br.eduardo.mercadinho.verificageral.VerificaGeral;
 
-public class Compra {
-	
-	public static void main(String[] args) {
-		 System.out.println("Bem vindo a Mercearia JAVA");
-		 System.out.println("Você precisa fazer o seu cadastro");
-		 registrar(); 
-		 Menu menu = new Menu();
-		 Produtos produtos = new Produtos();
-		 //produtos.listaProdutos();
-		 menu.menuIncial();
-		 
-	}
-	
+public class Registrar {
 	private static void registrar() {
 		Scanner scanner = new Scanner(System.in);
 		
@@ -25,7 +12,6 @@ public class Compra {
 		 String nomeDigitado = scanner.nextLine();
 		 System.out.println("Digite a sua idade:");
 		 int idadeDigitada = scanner.nextInt();
-		 scanner.nextLine();
 		 System.out.println("Digite o seu endereço");
 		 String enderecoDigitado = scanner.nextLine();
 		 System.out.println("Digite o seu CPF");
