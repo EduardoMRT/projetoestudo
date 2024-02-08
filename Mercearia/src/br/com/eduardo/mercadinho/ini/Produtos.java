@@ -9,7 +9,7 @@ public class Produtos {
 		TesteProduto testeProduto = new TesteProduto();
 		Produto cocaCola = testeProduto.getRefrigerante();
 		Produto salgadinho = testeProduto.getSalgadinho();
-
+		
 		Produto[] produtos = new Produto[10];
 
 		produtos[1] = salgadinho;

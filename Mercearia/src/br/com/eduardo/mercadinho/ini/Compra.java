@@ -9,10 +9,11 @@ public class Compra {
 		 System.out.println("Você precisa fazer o seu cadastro");
 		 Registrar registrar = new Registrar();
 		 registrar.registrarUsuario();
-		 Menu menu = new Menu();
-		 Produtos produtos = new Produtos();
+		 //Menu menu = new Menu();
+		 //Produtos produtos = new Produtos();
 		 //produtos.listaProdutos();
 		 Menu.menuIncial();
+		 
 		 
 	}
 	
