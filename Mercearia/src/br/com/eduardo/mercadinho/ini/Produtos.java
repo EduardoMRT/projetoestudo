@@ -15,11 +15,10 @@ public class Produtos {
 		produtos[1] = salgadinho;
 		produtos[2] = cocaCola;
 		
-		for (int x = 1; x <= 2; x++) {
-			System.out.println("/n"+x+" - "+produtos[x].getNomeProduto()+" - "+produtos[x].getPrecoProduto());
-			return "\n"+x+" - "+produtos[x].getNomeProduto()+" - "+produtos[x].getPrecoProduto();
-		}
-		
+			for(int x = 2; x <= 10;) {
+				return "\n"+x+" - "+produtos[x].getNomeProduto()+" - "+produtos[x].getPrecoProduto();
+			}
+			
 		return "Não há produtos";
 	}
 

@@ -32,8 +32,15 @@ public class Menu extends Compra {
 	public static void listarProdutos() {
 		
 		Produtos produtos = new Produtos();
-		JOptionPane.showInputDialog("teste"+produtos.listaProdutos());
-		opc1();
+		JOptionPane.showMessageDialog(null, produtos.listaProdutos());
+	}
+	
+public static void listarProdutosCompra() {
+		
+		Produtos produtos = new Produtos();
+		String teste = produtos.listaProdutos();
+		JOptionPane.showInputDialog("teste: "+teste);
+		
 	}
 	
 	public static void sair() {
