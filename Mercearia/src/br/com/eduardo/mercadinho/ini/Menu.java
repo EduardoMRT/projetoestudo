@@ -1,35 +1,38 @@
 package br.com.eduardo.mercadinho.ini;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
+import br.com.eduardo.mercadinho.domain.ListaDeCompra;
+
 public class Menu extends Compra {
 	
 
 	public static void menuIncial() {
-		System.out.println("1 - Produtos");
-		System.out.println("2 - Sair");
-		System.out.println("3 - Perfil");
 		opcoesInicial();
+		
+		
 	}
 	
 	public static void opcoesInicial() {
-		Scanner scanner = new Scanner(System.in);
-		int opcMenuInicial = scanner.nextInt();
-		if (opcMenuInicial == 1) {
+		String opcMenuInicial = JOptionPane.showInputDialog("Digite a Opção \n (P) Produtos \n (F) Perfil");
+		char opc_ini = opcMenuInicial.charAt(0);
+		if ((opc_ini == 'P') || (opc_ini == 'p')) {
 			listarProdutos();
-		}else if(opcMenuInicial == 2) {
+		}else if((opc_ini == 'S') || (opc_ini == 's')) {
 			sair();
-		}else if(opcMenuInicial == 3) {
+		}else if((opc_ini == 'F') || (opc_ini == 'f')) {
 			perfil();
 		}else {
-			System.out.println("Opção inválida");
+			JOptionPane.showMessageDialog(null, "Opção inválida");
 			menuIncial();
 		}
 	}
 	
 	public static void listarProdutos() {
-		Scanner scanner = new Scanner(System.in);
+		
 		Produtos produtos = new Produtos();
-		produtos.listaProdutos();
+		JOptionPane.showInputDialog("teste"+produtos.listaProdutos());
 		opc1();
 	}
 	
@@ -43,24 +46,36 @@ public class Menu extends Compra {
 	}
 	
 	public static void opc1()  {
-		System.out.println("1 - Comprar");
-		System.out.println("2 - Voltar");
-		System.out.println("3 - Sair");
+		System.out.println("(C) - Comprar");
+		System.out.println("(V) - Voltar");
+		System.out.println("(S) - Sair");
 		Scanner scanner = new Scanner(System.in);
-		int opc1 = scanner.nextInt();
-		if(opc1 == 1) {
+		String opc1 = scanner.nextLine();
+		if((opc1 == "C")||(opc1 == "c")) {
 			compra();
 			;
-		}else if(opc1 == 2) {
+		}else if((opc1 == "V")||(opc1 == "v")) {
 			menuIncial();
 			
 		}
-		else if(opc1 == 3) {
+		else if((opc1 == "S")||(opc1 == "s")) {
 			sair();
 		}
 	}
 	
 	public static void compra(){
+		Produtos produtos = new Produtos();
 		
+		System.out.println("/n Você escolheu a opção Compra!");
+		System.out.println("Escolha o item:");
+		listarProdutos();
+		Scanner scanner = new Scanner(System.in);
+		String opcCompra = scanner.nextLine();
+		System.out.println("Digite a quantidade o item:");
+		String qtdProduto = scanner.nextLine();
+		
+		System.out.println(opcCompra+" - "+qtdProduto);
+		
+		ListaDeCompra listaDeCompra = new ListaDeCompra();
 	}
 }

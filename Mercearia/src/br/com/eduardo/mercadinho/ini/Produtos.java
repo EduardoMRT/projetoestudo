@@ -5,7 +5,7 @@ import br.com.eduardo.mercadinho.teste.TesteProduto;
 
 public class Produtos {
 
-	public void listaProdutos() {
+	public String listaProdutos() {
 		TesteProduto testeProduto = new TesteProduto();
 		Produto cocaCola = testeProduto.getRefrigerante();
 		Produto salgadinho = testeProduto.getSalgadinho();
@@ -14,10 +14,13 @@ public class Produtos {
 
 		produtos[1] = salgadinho;
 		produtos[2] = cocaCola;
-
+		
 		for (int x = 1; x <= 2; x++) {
-			System.out.println(x+" - "+produtos[x].getNomeProduto());
+			System.out.println("/n"+x+" - "+produtos[x].getNomeProduto()+" - "+produtos[x].getPrecoProduto());
+			return "\n"+x+" - "+produtos[x].getNomeProduto()+" - "+produtos[x].getPrecoProduto();
 		}
+		
+		return "Não há produtos";
 	}
 
 }

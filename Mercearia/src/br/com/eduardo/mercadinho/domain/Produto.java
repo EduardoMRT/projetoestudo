@@ -7,6 +7,7 @@ public class Produto {
 	private BigDecimal precoProduto;
 	private int quantidadeProduto;
 	private String descricaoProduto;
+	private int idProduto;
 	
 	public String getNomeProduto() {
 		return nomeProduto;
@@ -24,8 +25,13 @@ public class Produto {
 		return quantidadeProduto;
 	}
 
-	public Produto(String nomeProduto, BigDecimal precoProduto, int quantidadeProduto, String descricaoProduto) {
+	public int getIdProduto() {
+		return idProduto;
+	}
+	
+	public Produto(int idProduto, String nomeProduto, BigDecimal precoProduto, int quantidadeProduto, String descricaoProduto) {
 		super();
+		this.idProduto = idProduto;
 		this.nomeProduto = nomeProduto;
 		this.precoProduto = precoProduto;
 		this.quantidadeProduto = quantidadeProduto;
