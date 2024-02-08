@@ -2,30 +2,36 @@ package br.com.eduardo.mercadinho.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.ResultSet;
+
+import javax.swing.JOptionPane;
 
 public class ConexaoMySQL {
 	
-	
-	private static final String url = "jdbc:mysql://localhost:3306/mercearia";
-	private static final String user = "root";
-	public static final String password = "admin";
-
-	private static Connection conn;
-
-	public static Connection getConnection() {
-
+public static Connection conectaDB(){
+	Connection conn = null;
 		try {
-			if (conn == null) {
-				conn = DriverManager.getConnection(url, user, password);
-				return conn;
-			} else {
-				return conn;
+			String url = "jdbc:mysql://localhost:3306/mercearia?user=root&password=admin";
+			conn = DriverManager.getConnection(url);
+			System.out.println(url);
+	
+			java.sql.Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios");
+			while (rs.next()) {
+			String nome = rs.getString("nome");
+			System.out.println(nome);
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
+		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
+		//System.out.println("entrou no conn class");
+		return conn;
 	}
+
+public static void main(String[] args) {
+	conectaDB();
+}
+
 }
