@@ -1,6 +1,7 @@
 package br.com.eduardo.mercadinho.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.eduardo.mercadinho.conexao.ConexaoMySQL;
@@ -15,14 +16,9 @@ public class UsuarioDAO extends ConexaoMySQL{
 		
 		PreparedStatement ps = null;
 		try {
-			ps = conectaDB().prepareStatement("INSERT INTO usuarios VALUES (?, ?, ?, ?)");
-			ps.setString(1, cliente.getNome());
-			ps.setInt(2, cliente.getIdade());
-			ps.setString(3, cliente.getEndereco());
-			ps.setString(4, cliente.getCpf());
-			
-			ps.addBatch();
-			System.out.println("Passou 2");
+			java.sql.Statement stmt = conectaDB().createStatement();
+			int rs = stmt.executeUpdate("INSERT INTO usuarios (nome, idade, endereco, cpf) VALUES ('cliente.getNome()','cliente.getIdade()','cliente.getEndereco()','cliente.getCpf()'))");
+			System.out.println("entrou");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

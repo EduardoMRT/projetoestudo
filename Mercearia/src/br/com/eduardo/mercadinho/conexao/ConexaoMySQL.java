@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class ConexaoMySQL {
 	
-public static Connection conectaDB(){
+public  Connection conectaDB(){
 	Connection conn = null;
 		try {
 			String url = "jdbc:mysql://localhost:3306/mercearia?user=root&password=admin";
@@ -20,6 +20,8 @@ public static Connection conectaDB(){
 			while (rs.next()) {
 			String nome = rs.getString("nome");
 			System.out.println(nome);
+			
+			return conn;
 			}
 			
 		} catch (Exception e) {
@@ -30,8 +32,8 @@ public static Connection conectaDB(){
 		return conn;
 	}
 
-public static void main(String[] args) {
-	conectaDB();
-}
+//public static void main(String[] args) {
+//	conectaDB();
+//}
 
 }
