@@ -4,6 +4,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 import br.com.eduardo.mercadinho.dao.ProdutoDAO;
+import br.com.eduardo.mercadinho.dao.UsuarioDAO;
 import br.com.eduardo.mercadinho.domain.ListaDeCompra;
 
 public class Menu extends Compra {
@@ -36,7 +37,15 @@ public class Menu extends Compra {
 //		JOptionPane.showMessageDialog(null, produtos.listaProdutos());
 		
 		ProdutoDAO produtoDAO = new ProdutoDAO();
-		JOptionPane.showMessageDialog(null, produtoDAO.listarProdutos());
+		String opc = JOptionPane.showInputDialog(null, produtoDAO.listarProdutos()+"\n (1) Comprar \n (2) Voltar");
+		int opcEsc = Integer.parseInt(opc);
+		if(opcEsc == 1) {
+			compra();
+		}else if(opcEsc == 2) {
+			opcoesInicial();
+		}else {
+			JOptionPane.showMessageDialog(null, "Opção inválida!");
+		}
 	}
 	
 public static void listarProdutosCompra() {
@@ -75,18 +84,18 @@ public static void listarProdutosCompra() {
 	}
 	
 	public static void compra(){
-		Produtos produtos = new Produtos();
-		
-		System.out.println("/n Você escolheu a opção Compra!");
-		System.out.println("Escolha o item:");
-		listarProdutos();
-		Scanner scanner = new Scanner(System.in);
-		String opcCompra = scanner.nextLine();
-		System.out.println("Digite a quantidade o item:");
-		String qtdProduto = scanner.nextLine();
-		
-		System.out.println(opcCompra+" - "+qtdProduto);
-		
-		ListaDeCompra listaDeCompra = new ListaDeCompra();
+			ProdutoDAO produtoDAO = new ProdutoDAO();
+			UsuarioDAO usuarioDAO = new UsuarioDAO();
+			
+			String opcCod = JOptionPane.showInputDialog(produtoDAO.listarProdutos()+"\n Digite o código do produto que deseja comprar");
+			String opcQtd = JOptionPane.showInputDialog("Digite a quantidade");
+			
+			int cod = Integer.parseInt(opcCod);
+			int qtd = Integer.parseInt(opcQtd);
+			
+			produtoDAO.comprarProduto(cod);
+			
+			int confComp = JOptionPane.showConfirmDialog(null, "Confirmar Compra?");
+			
 	}
 }
