@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import br.com.eduardo.mercadinho.dao.ProdutoDAO;
 import br.com.eduardo.mercadinho.domain.ListaDeCompra;
 
 public class Menu extends Compra {
@@ -31,8 +32,11 @@ public class Menu extends Compra {
 	
 	public static void listarProdutos() {
 		
-		Produtos produtos = new Produtos();
-		JOptionPane.showMessageDialog(null, produtos.listaProdutos());
+//		Produtos produtos = new Produtos();
+//		JOptionPane.showMessageDialog(null, produtos.listaProdutos());
+		
+		ProdutoDAO produtoDAO = new ProdutoDAO();
+		JOptionPane.showMessageDialog(null, produtoDAO.listarProdutos());
 	}
 	
 public static void listarProdutosCompra() {

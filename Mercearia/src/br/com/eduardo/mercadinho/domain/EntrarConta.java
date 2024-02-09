@@ -38,6 +38,7 @@ public class EntrarConta {
 		}
 		if(validado == 0) {
 			JOptionPane.showMessageDialog(null, "Nome ou senha incorretas!");
+			System.exit(0);
 		}
 		return validado;
 		
