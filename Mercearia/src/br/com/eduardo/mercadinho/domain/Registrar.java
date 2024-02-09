@@ -8,8 +8,6 @@ import br.eduardo.mercadinho.verificageral.VerificaGeral;
 public class Registrar {
 	public void registrarUsuario() {
 		
-		String codigo = JOptionPane.showInputDialog("ID:");
-		int idUsuario = Integer.parseInt(codigo); 
 		 
 		 String nomeDigitado = JOptionPane.showInputDialog("Digite o seu nome");
 		 String idade = JOptionPane.showInputDialog("Digite a sua idade");
@@ -17,8 +15,8 @@ public class Registrar {
 		 String enderecoDigitado = JOptionPane.showInputDialog("Digite o seu endereço");
 		 String cpfDigitado = JOptionPane.showInputDialog("Digite o seu CPF");
 		 String nomeCliente = nomeDigitado;
-		
-		 Cliente user = new Cliente(idUsuario, nomeCliente, idadeDigitada, enderecoDigitado, cpfDigitado);
+		 String senhaDigitada = JOptionPane.showInputDialog("Digite a sua senha");
+		 Cliente user = new Cliente(nomeCliente, idadeDigitada, enderecoDigitado, cpfDigitado, senhaDigitada);
 		 VerificaGeral verificaGeral = new VerificaGeral();
 		 verificaGeral.verificarCliente(user);
 		 
